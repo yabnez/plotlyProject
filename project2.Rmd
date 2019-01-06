@@ -1,0 +1,20 @@
+---
+title: "R Markdown Presentation & Plotly"
+author: "Masamichi Kawarabayashi"
+date: "Dec 2, 2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+data("diamonds")
+```
+
+## plotly example
+
+Create a web page presentation using R Markdown that features a plot created with Plotly.
+
+```{r plotly, warning=FALSE}
+plot_ly(diamonds, x=~carat, y=~price, type="scatter", mode="markers", color=~clarity)
+```

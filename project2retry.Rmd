@@ -1,0 +1,23 @@
+---
+title: "R Markdown Presentation & Plotly retry"
+author: "Masamichi Kawarabayashi"
+date: "Jan 5, 2019"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)
+data("quakes")
+```
+
+## plotly example
+
+The data set give the locations of 1000 seismic events of MB > 4.0. The events occurred in a cube near Fiji since 1964. Just use first 100 examples.
+
+```{r plotly, warning=FALSE}
+p <- plot_ly(quakes[1:100,], x=~long, y=~lat, type="scatter", mode="markers", color=~-depth, size=~mag, name=~stations)
+hide_legend(p)
+```
